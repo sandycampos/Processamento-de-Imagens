@@ -1,16 +1,76 @@
-# React + Vite
+# Processamento Adaptativo de Imagens em Baixa Luminosidade
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório apresenta uma aplicação experimental para **realce de imagens em condições de baixa luminosidade**, baseada no método proposto por **Zahi & Yue (2017)**. O objetivo do projeto é estudar, implementar e comparar técnicas de realce de contraste aplicadas a imagens digitais.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Objetivo
 
-## React Compiler
+Implementar e avaliar um método adaptativo de realce de imagens de baixa luminosidade, comparando-o com técnicas clássicas como:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* Transformação logarítmica
+* Mapeamento tonal
+* Equalização de histograma
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Metodologia
+
+O método proposto baseia-se na análise do histograma da imagem para estimar o nível global de luminância. A partir dessa estimativa:
+
+1. A imagem é classificada em três categorias (escura, mista ou clara);
+2. Parâmetros adaptativos são calculados automaticamente;
+3. Aplica-se uma transformação híbrida que combina transformação logarítmica e função identidade.
+
+A implementação foi realizada em **JavaScript**, utilizando **React** e a **Canvas API** para manipulação direta dos pixels da imagem.
+
+---
+
+## Funcionalidades Implementadas
+
+* Carregamento de imagens locais
+* Processamento em tempo real
+* Comparação visual entre imagem original e processada
+* Seleção de diferentes métodos de realce
+* Ajuste do parâmetro (\lambda) para estimação de luminância
+* Exportação da imagem processada
+
+---
+
+## Tecnologias Utilizadas
+
+* React
+* Canvas API
+* Tailwind CSS
+
+---
+
+## Execução do Projeto
+
+### Requisitos
+
+* Node.js (≥ 16)
+* npm
+
+### Passos
+
+```bash
+git clone https://github.com/seu-usuario/seu-repositorio.git
+cd seu-repositorio
+npm install
+npm run dev
+```
+
+A aplicação estará disponível em `http://localhost:5173`.
+
+---
+
+## Referência
+
+Zahi, A., & Yue, Y. (2017). *Adaptive Enhancement of Low-Light Images Based on Histogram Analysis*. Computing Conference.
+
+---
+
+## Considerações Finais
+
+Este projeto possui caráter **acadêmico e experimental**, sendo indicado para estudos em processamento digital de imagens, visão computacional e análise de algoritmos de realce.
