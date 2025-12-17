@@ -55,8 +55,8 @@ A implementação foi realizada em **JavaScript**, utilizando **React** e a **Ca
 ### Passos
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone git@github.com:sandycampos/ProjetoZahiYue.git
+cd ProjetoZahiYue
 npm install
 npm run dev
 ```
